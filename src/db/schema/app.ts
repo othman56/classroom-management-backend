@@ -3,10 +3,7 @@ import { relations } from "drizzle-orm/relations";
 
 const timestamps = {
   createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at")
-    .defaultNow()
-    .$onUpdate(() => new Date())
-    .notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
 };
 
 export const departments = pgTable("departments", {

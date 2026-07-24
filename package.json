@@ -8,6 +8,7 @@
     "start": "node dist/server.js",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
+    "db:reset": "drizzle-kit drop",
     "demo:drizzle": "tsx src/drizzle-demo.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
