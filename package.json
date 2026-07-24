@@ -6,6 +6,9 @@
     "dev": "tsx src/index.ts",
     "build": "tsc",
     "start": "node dist/server.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "demo:drizzle": "tsx src/drizzle-demo.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
