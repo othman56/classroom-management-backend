@@ -3,17 +3,17 @@
   "dialect": "postgresql",
   "entries": [
     {
-      "idx": 0,
-      "version": "7",
-      "when": 1784891756966,
-      "tag": "0000_worried_apocalypse",
-      "breakpoints": true
-    },
-    {
       "idx": 1,
       "version": "7",
       "when": 1784891757000,
       "tag": "0001_add_updated_at_trigger",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1784997237903,
+      "tag": "0002_colossal_jackpot",
       "breakpoints": true
     }
   ]

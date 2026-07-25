@@ -1,20 +1,27 @@
 import express, { Request, Response, NextFunction } from "express";
+import subjectRouter from "./routes/subject";
+import cors from "CORS";
 
 const app = express();
 const PORT = 8000;
 
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  }),
+);
+
 // Built-in middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-// Simple request logger middleware
-app.use((req: Request, _res: Response, next: NextFunction) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
-});
+app.use("/api/subjects", subjectRouter);
+
+app.use(express.json());
 
 // Root GET route
-app.get("/", (_req: Request, res: Response) => {
+app.get("/", (_req, res) => {
   res.send("Hello from Classroom Management backend");
 });
 
