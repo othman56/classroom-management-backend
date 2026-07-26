@@ -1,9 +1,13 @@
 import express, { Request, Response, NextFunction } from "express";
 import subjectRouter from "./routes/subject";
-import cors from "CORS";
+import cors from "cors";
 
 const app = express();
 const PORT = 8000;
+
+if (!process.env.FRONTEND_URL) {
+  throw new Error("FRONTEND_URL is not set in .env file");
+}
 
 app.use(
   cors({
