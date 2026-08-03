@@ -1,6 +1,7 @@
 import express, { Request, Response, NextFunction } from "express";
 import subjectRouter from "./routes/subject";
 import cors from "cors";
+import securityMiddleware from "./middleware/security";
 
 const app = express();
 const PORT = 8000;
@@ -19,6 +20,8 @@ app.use(
 
 // Built-in middleware
 app.use(express.json());
+
+app.use(securityMiddleware);
 
 app.use("/api/subjects", subjectRouter);
 
