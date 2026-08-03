@@ -22,6 +22,20 @@
       "when": 1785765954204,
       "tag": "0003_yummy_nekra",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1785766683177,
+      "tag": "0004_thin_frightful_four",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1785766870398,
+      "tag": "0005_absent_dragon_man",
+      "breakpoints": true
     }
   ]
 }

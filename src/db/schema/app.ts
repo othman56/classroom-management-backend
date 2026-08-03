@@ -19,8 +19,13 @@ export const classStatusEnum = pgEnum("class_status", [
 ]);
 
 const timestamps = {
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .defaultNow()
+    .notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true })
+    .defaultNow()
+    .notNull()
+    .$onUpdate(() => new Date()),
 };
 
 export type Schedule = {
@@ -65,7 +70,7 @@ export const classes = pgTable(
     description: text("description"),
     capacity: integer("capacity").default(50).notNull(),
     status: classStatusEnum("status").default("active").notNull(),
-    schedules: jsonb("schedules").$type<Schedule[]>().default([]),
+    schedules: jsonb("schedules").$type<Schedule[]>().default([]).notNull(),
     ...timestamps,
   },
   (table) => ({
