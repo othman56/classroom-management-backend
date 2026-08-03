@@ -15,6 +15,13 @@
       "when": 1784997237903,
       "tag": "0002_colossal_jackpot",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1785765954204,
+      "tag": "0003_yummy_nekra",
+      "breakpoints": true
     }
   ]
 }
