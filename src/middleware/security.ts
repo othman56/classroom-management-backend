@@ -16,7 +16,7 @@ const securityMiddleware = async (
 
     switch (role) {
       case "admin":
-        limit = 2;
+        limit = 20;
         message = "Admin request exceeded (20 per minute). Slow down";
         break;
       case "teacher":
@@ -40,7 +40,7 @@ const securityMiddleware = async (
     );
 
     const arcjectRequest = {
-      header: req.headers,
+      headers: req.headers,
       method: req.method,
       url: req.originalUrl ?? req.url,
       socket: {
@@ -56,12 +56,6 @@ const securityMiddleware = async (
         message: "Automated requests are not allowed.",
       });
     }
-    if (decision.isDenied() && decision.reason.isBot()) {
-      return res.status(403).json({
-        error: "Forbidden",
-        message: "Automated requests are not allowed.",
-      });
-    }
     if (decision.isDenied() && decision.reason.isShield()) {
       return res.status(403).json({
         error: "Forbidden",
@@ -69,9 +63,15 @@ const securityMiddleware = async (
       });
     }
     if (decision.isDenied() && decision.reason.isRateLimit()) {
-      return res.status(403).json({
+      return res.status(429).json({
         error: "Too Many Requests",
         message,
+      });
+    }
+    if (decision.isErrored() && decision.reason.isError()) {
+      return res.status(500).json({
+        error: "Internal Server Error",
+        message: "Something went wrong with security middleware ",
       });
     }
 
