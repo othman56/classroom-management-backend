@@ -10,7 +10,7 @@ import {
   varchar,
 } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm/relations";
-import { user } from "./auth";
+import { user } from "./auth.js";
 
 export const classStatusEnum = pgEnum("class_status", [
   "active",
