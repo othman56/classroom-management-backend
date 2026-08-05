@@ -2,9 +2,9 @@ import AgentAPI from "apminsight";
 AgentAPI.config();
 
 import express, { Request, Response, NextFunction } from "express";
-import subjectRouter from "./routes/subject";
+import subjectRouter from "./routes/subject.js";
 import cors from "cors";
-import securityMiddleware from "./middleware/security";
+import securityMiddleware from "./middleware/security.js";
 
 const app = express();
 const PORT = 8000;

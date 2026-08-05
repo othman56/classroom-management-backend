@@ -1,9 +1,4 @@
-import arcjet, {
-  detectBot,
-  shield,
-  tokenBucket,
-  slidingWindow,
-} from "@arcjet/node";
+import arcjet, { detectBot, shield, slidingWindow } from "@arcjet/node";
 
 if (!process.env.ARCJET_KEY && process.env.NODE_ENV !== "test") {
   throw new Error(

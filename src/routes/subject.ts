@@ -1,7 +1,7 @@
 import { and, desc, eq, getTableColumns, ilike, or, sql } from "drizzle-orm";
 import express from "express";
-import { departments, subjects } from "../db/schema";
-import { db } from "../db/db";
+import { departments, subjects } from "../db/schema/index.js";
+import { db } from "../db/db.js";
 export const router = express.Router();
 
 // get all subjects with optional filtering and pagination
