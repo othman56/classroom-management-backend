@@ -6,7 +6,7 @@
 
     /* Node ESM */
     "module": "ES2022",
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "ignoreDeprecations": "6.0",
 
     /* Project structure */
