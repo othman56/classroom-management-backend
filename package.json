@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "tsx src/index.ts",
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "node dist/index.js",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:reset": "drizzle-kit drop",
@@ -21,13 +21,17 @@
     "@arcjet/inspect": "^1.5.0",
     "@arcjet/node": "^1.5.0",
     "better-auth": "^1.6.25",
+    "@neondatabase/serverless": "^1.1.0",
+    "apminsight": "^5.5.1",
     "cors": "^2.8.6",
+    "drizzle-orm": "^0.45.2",
     "express": "^5.2.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^26.1.1",
+    "drizzle-kit": "^0.31.10",
     "tsx": "^4.23.1",
     "typescript": "^7.0.2"
   }
