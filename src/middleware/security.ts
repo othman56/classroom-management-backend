@@ -68,11 +68,9 @@ const securityMiddleware = async (
         message,
       });
     }
-    if (decision.isErrored() && decision.reason.isError()) {
-      return res.status(500).json({
-        error: "Internal Server Error",
-        message: "Something went wrong with security middleware ",
-      });
+    if (decision.isErrored()) {
+      console.warn("Arcjet unavailable:", decision.reason);
+      return next();
     }
 
     next();

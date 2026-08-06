@@ -5,7 +5,6 @@ if (!process.env.ARCJET_KEY && process.env.NODE_ENV !== "test") {
     "ARCJET_KEY environment variable is not set. Please set it to your Arcjet site key.",
   );
 }
-
 const aj = arcjet({
   key: process.env.ARCJET_KEY!,
   rules: [
