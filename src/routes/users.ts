@@ -19,15 +19,21 @@ router.get("/", async (req, res) => {
     const offset = (currentPage - 1) * limitPerPage;
 
     const filterConditions = [];
+    const allowedRoles = ["student", "teacher", "admin"] as const;
+    type UserRole = (typeof allowedRoles)[number];
 
     if (search) {
       filterConditions.push(
-        or(ilike(user.name, `%${search}%`), ilike(user.email, `%${search}%`)),
+        ilike(user.name, `%${String(search)}%`),
+        ilike(user.email, `%${String(search)}%`),
       );
     }
 
     if (role) {
-      filterConditions.push(eq(user.role, String(role)));
+      const roleValue = String(role) as UserRole;
+      if (allowedRoles.includes(roleValue)) {
+        filterConditions.push(eq(user.role, roleValue));
+      }
     }
 
     const whereClause =
